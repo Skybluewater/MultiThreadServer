@@ -3,7 +3,7 @@ import threading
 import inspect
 import ctypes
 from threading import Event
-from clientServer import deal_client, listThread, clientIDArray, event, lock, threadNumber
+from clientServer import deal_client, listThread, threadNumber, clientIDArray, event, lock
 
 numberOfConn = 20
 
