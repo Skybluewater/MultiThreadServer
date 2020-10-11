@@ -38,17 +38,19 @@ def stop_thread(thread: threading.Thread):
 def check_client(newSocket: socket.socket, tid, fatherThread: threading.Thread):
     while True:
         event.wait()
-        global threadNumber, listThread
         flag = 0
         lock.acquire()
         try:
             if threadNumber == tid:
                 print("find conflict tid: " + str(tid))
+                print("thread number: ", id(threadNumber))
                 ### 先关闭父进程不再socket 读报错
                 stop_thread(fatherThread)
                 newSocket.close()
                 listThread.remove(tid)
                 print("lthread number %s release" %str(tid))
+                print("listThread in ex: " + str(id(listThread)))
+                print("clientIDArrad in ex: " + str(id(clientIDArray)))
                 print("lthread: ", str(listThread))
                 clientIDArray[tid] = 0
                 flag = 1
