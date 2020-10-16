@@ -43,6 +43,6 @@ def main():
  
  
 if __name__ == '__main__':
-    for i in range(0, numberOfConn):
+    for i in range(0, numberOfConn+1):
         cS.clientIDArray.append(0)
     main()

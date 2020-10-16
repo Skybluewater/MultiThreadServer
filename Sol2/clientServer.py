@@ -52,10 +52,10 @@ def check_client(newSocket: socket.socket, tid, fatherThread: threading.Thread):
                 print("listThread in ex: " + str(id(listThread)))
                 print("clientIDArrad in ex: " + str(id(clientIDArray)))
                 print("lthread: ", str(listThread))
+                print("server Event.id: " + str(id(serverEvent)))
                 clientIDArray[tid] = 0
                 event.clear()
                 serverEvent.set()
-                print("server Event.id: " + str(id(serverEvent)))
                 break
         finally:
             lock.release()
